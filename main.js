@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('dotenv').config();
 
 const client = new Discord.Client({
     intents: [
@@ -17,7 +18,9 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`)
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
 }
 
 
@@ -33,13 +36,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'ping') {
-        message.channel.send(`Hello! @${message.author.username}`);
-        console.log(message);
+        client.commands.get('ping').execute(message, args);
     }
 });
 
-
-
-
-
-client.login('OTgxNzE1Nzc0MzM3MDc3MjQ4.G_P9vE.KZAksOMC6AbSR4vEG8k9UjZJ3luiWEc4ioOrvM');
+client.login(process.env.BOT_TOKEN);
