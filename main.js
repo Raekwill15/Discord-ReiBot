@@ -28,7 +28,7 @@ client.once('ready', () => {
     console.log('ReiBot is Online');
 });
 
-client.on('message', message => {
+client.on('messageCreate', message => {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -37,6 +37,10 @@ client.on('message', message => {
 
     if (command === 'ping') {
         client.commands.get('ping').execute(message, args);
+    } else if (command === 'crush') {
+        client.commands.get('crush').execute(message, args);
+    } else if (command === 'commands') {
+        client.commands.get('commands').execute(message, args);
     }
 });
 
