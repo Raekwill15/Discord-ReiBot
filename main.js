@@ -41,6 +41,8 @@ client.on('messageCreate', message => {
         client.commands.get('crush').execute(message, args);
     } else if (command === 'commands') {
         client.commands.get('commands').execute(message, args);
+    } else if (command === 'spit') {
+        client.commands.get('spit').execute(message, args);
     }
 });
 

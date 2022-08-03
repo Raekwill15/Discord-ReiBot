@@ -8,7 +8,14 @@ module.exports = {
             .setColor("#304281")
             .setTitle('Commands List')
             .setDescription('This is the Bot Commands List')
-            .addFields({ name: 'Funnys', value: '**+Ping:** Bot responds "Pong Hello! :)" \n **+crush:** Not yet complete but will send Gif of someone being crushed. \n **+Commands:** Sends command list.' })
+            .addFields({
+                name: '___________________',
+                value: '**+Ping:** Bot greeting :smiley:" \n' +
+                    '**+Crush:** Crush someone in a gif :smile:. \n' +
+                    '**+Commands:** Sends command list. :book:\n' +
+                    '**+Spit:** Spit on someone in a gif :tongue:\n' +
+                    '___________________'
+            })
             .setImage('https://c.tenor.com/3EfoztaqNO8AAAAC/squidward-spongebob.gif')
             .setTimestamp();
 
